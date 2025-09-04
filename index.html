@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Moana Bebê em CSS</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #b3e0ff 0%, #fff 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    .moana-baby {
+      margin-top: 40px;
+      position: relative;
+      width: 220px;
+      height: 340px;
+    }
+
+    .head {
+      position: absolute;
+      top: 0;
+      left: 40px;
+      width: 140px;
+      height: 140px;
+      background: #f5c89c;
+      border-radius: 50%;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      z-index: 2;
+    }
+
+    .hair {
+      position: absolute;
+      top: -20px;
+      left: -10px;
+      width: 160px;
+      height: 70px;
+      background: #4b2e1a;
+      border-radius: 80px 80px 60px 60px;
+      z-index: 3;
+    }
+
+    .face .eye {
+      position: absolute;
+      top: 50px;
+      width: 18px;
+      height: 18px;
+      background: #222;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    }
+    .face .eye.left { left: 32px; }
+    .face .eye.right { right: 32px; }
+
+    .face .mouth {
+      position: absolute;
+      top: 95px;
+      left: 54px;
+      width: 32px;
+      height: 18px;
+      border-radius: 0 0 32px 32px;
+      border-bottom: 3px solid #c85f2e;
+    }
+
+    .flower {
+      position: absolute;
+      top: 15px;
+      left: 95px;
+      width: 24px;
+      height: 24px;
+      background: pink;
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 8px #f8e4e9,
+        -16px 0 0 0 #f8e4e9,
+        16px 0 0 0 #f8e4e9,
+        0 16px 0 0 #f8e4e9,
+        0 -16px 0 0 #f8e4e9;
+      z-index: 10;
+    }
+
+    .body {
+      position: absolute;
+      top: 135px;
+      left: 60px;
+      width: 100px;
+      height: 120px;
+    }
+
+    .dress {
+      position: absolute;
+      top: 0;
+      left: 10px;
+      width: 80px;
+      height: 85px;
+      background: #ecb25f;
+      border-radius: 50% 50% 60% 60%;
+      border-bottom: 8px solid #fff;
+    }
+
+    .arm {
+      position: absolute;
+      top: 30px;
+      width: 30px;
+      height: 18px;
+      background: #f5c89c;
+      border-radius: 20px;
+    }
+    .arm.left { left: -24px; transform: rotate(-20deg); }
+    .arm.right { right: -24px; transform: rotate(20deg); }
+
+    .legs {
+      position: absolute;
+      top: 105px;
+      left: 0;
+      width: 100px;
+      height: 40px;
+    }
+    .leg {
+      position: absolute;
+      bottom: 0;
+      width: 24px;
+      height: 34px;
+      background: #f5c89c;
+      border-radius: 16px 16px 24px 24px;
+    }
+    .leg.left { left: 10px; }
+    .leg.right { right: 10px; }
+  </style>
+</head>
+<body>
+  <div class="moana-baby">
+    <div class="head">
+      <div class="hair"></div>
+      <div class="face">
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="mouth"></div>
+        <div class="flower"></div>
+      </div>
+    </div>
+    <div class="body">
+      <div class="dress"></div>
+      <div class="arm left"></div>
+      <div class="arm right"></div>
+      <div class="legs">
+        <div class="leg left"></div>
+        <div class="leg right"></div>
+      </div>
+    </div>
+  </div>
+  <button id="wave">Moana acena!</button>
+  <script>
+    document.getElementById("wave").addEventListener("click", function() {
+      const arm = document.querySelector(".arm.right");
+      arm.style.transition = "transform 0.5s";
+      arm.style.transform = "rotate(-30deg) translateY(-20px)";
+      setTimeout(() => {
+        arm.style.transform = "rotate(20deg)";
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
